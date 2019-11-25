@@ -1,0 +1,17 @@
+{
+  "name": "raytracechallenge_js",
+  "version": "1.0.0",
+  "description": "Building a raytracing rendering engine from scratch, with the book 'The Raytracer Challenge'.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "raytracer",
+    "challenge",
+    "rendering",
+    "javascript"
+  ],
+  "author": "Wesley Williams",
+  "license": "ISC"
+}
