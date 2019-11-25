@@ -1,4 +1,4 @@
-import {Tuple, Point, Vector} from './Tuple';
+import {Tuple, Point, Vector} from './index.js';
 
 let tuple;
 
