@@ -31,6 +31,17 @@ Tuple.prototype.subtract = function (b) {
   return Tuple.subtract(this, b);
 }
 
+Tuple.negate = function (tuple) {
+  const x = tuple.x * -1;
+  const y = tuple.y * -1;
+  const z = tuple.z * -1;
+  const w = tuple.w * -1;
+  return new Tuple(x,y,z,w);
+}
+Tuple.prototype.negate = function () {
+  return Tuple.negate(this);
+}
+
 export function Point(x,y,z) {
   return new Tuple(x,y,z,1);
 }
