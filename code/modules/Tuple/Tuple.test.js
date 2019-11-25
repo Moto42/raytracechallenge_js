@@ -51,7 +51,7 @@ describe('Adding Tuples', () => {
   });
 });
 
-describe('Subtracting Tuples', () => {
+describe('Subtracting two points', () => {
   test('...with Tuple.subtract()', () => {
     const point1 = new Point(3,2,1);
     const point2 = new Point(5,6,7);
@@ -65,6 +65,36 @@ describe('Subtracting Tuples', () => {
     const target = new Vector(-2,-4,-6)
     const result = point1.subtract(point2);
     expect(result).toEqual(target);
+  });
+});
+
+describe('Subtracting a vector from a point', () => {
+  test('...with Tuple.subtract', () => {
+    const point  = new Point(3,2,1);
+    const vector = new Vector(5,6,7);
+    const target = new Point(-2,-4-6);
+    const result = Tuple.subtract(point, vector);
+  });
+  test('...with instance.subtract', () => {
+    const point  = new Point(3,2,1);
+    const vector = new Vector(5,6,7);
+    const target = new Point(-2,-4-6);
+    const result = point.subtract(vector);
+  });
+});
+
+describe('Subtracting a Vector from a Vector', () => {
+  test('...with Tuple.subtract', () => {
+    const vector1 = new Vector(3,2,1);
+    const vector2 = new Vector(5,6,7);
+    const target  = new Vector(-2,-4-6);
+    const result  = Tuple.subtract(vector1, vector2);
+  });
+  test('...with instance.subtract', () => {
+    const vector1 = new Vector(3,2,1);
+    const vector2 = new Vector(5,6,7);
+    const target  = new Vector(-2,-4-6);
+    const result  = vector1.subtract(vector2);
   });
 });
 
