@@ -143,6 +143,20 @@ describe('Scalar Multiplication', () => {
     });
   });
 });
+describe('Scalar Division', () => {
+  test('with Tuple.divide', () => {
+    const tuple  = new Tuple(1,-2,3,-4);
+    const target = new Tuple(0.5,-1,1.5,-2);
+    const result = Tuple.divide(tuple, 2);
+    expect(result).toEqual(target);
+  });
+  test('with instance.divide', () => {
+    const tuple  = new Tuple(1,-2,3,-4);
+    const target = new Tuple(0.5,-1,1.5,-2);
+    const result = tuple.divide(2);
+    expect(result).toEqual(target);
+  });
+});
 
 test('Point() creates a Tuple with w=1', () => {
   let point = new Point(4,-4,3);
