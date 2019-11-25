@@ -157,6 +157,29 @@ describe('Scalar Division', () => {
     expect(result).toEqual(target);
   });
 });
+describe('Computing Magnitude', () => {
+  // each item is an array [Vector to test, correct Magnitude]
+  let testCases = [
+    [new Vector(1,0,0), 1],
+    [new Vector(0,1,0), 1],
+    [new Vector(0,0,1), 1],
+    [new Vector(-1,-2,-3), Math.sqrt(14)],
+  ]
+  for(let item of testCases){
+    const vector = item[0];
+    const correct = item[1];
+    describe(`of Vector(${vector.x},${vector.y},${vector.z})`, () => {
+      test('with Tuple.Magnitude', () => {
+        const magnitude = Tuple.magnitude();
+        expect(magnitude).toFloatingPointEqual(correct);
+      });
+      test('with instance.magnitude', () => {
+        const magnitude = vector.magnitude();
+        expect(magnitude).toFloatingPointEqual(correct);
+      });
+    });
+  }
+});
 
 test('Point() creates a Tuple with w=1', () => {
   let point = new Point(4,-4,3);
