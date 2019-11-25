@@ -34,6 +34,23 @@ describe('A tuple with w=0 is a vector', () => {
   });
 });
 
+describe('Adding Tuples', () => {
+  test('... with Tuple.add(a,b)', () => {
+    const tupleA = new Tuple(3,-1,5,1);
+    const tupleB = new Tuple(-2,3,1,0);
+    const addedTuple = add(tupleA, tupleB);
+    const targetTuple = new Tuple(1,1,6,1);
+    expect(addedTuple).toEqual(targetTuple);
+  });
+  test('... with <instance>.add(a)', () => {
+    const tupleA = new Tuple(3,-1,5,1);
+    const tupleB = new Tuple(-2,3,1,0);
+    const addedTuple = tupleA.add(tupleB);
+    const targetTuple = new Tuple(1,1,6,1);
+    expect(addedTuple).toEqual(targetTuple);
+  });
+});
+
 test('Point() creates a Tuple with w=1', () => {
   let point = new Point(4,-4,3);
   let tuple = new Tuple(4,-4,3,1);
