@@ -17,7 +17,6 @@ describe('A tuple with w=1.0 is a point', () => {
     expect(tuple.isVector).toBe(false);
   });
 });
-
 describe('A tuple with w=0 is a vector', () => {
   beforeAll(() => { tuple = new Tuple(4.3, -4.2, 3.1, 0.0) });
   test('Values passed in are assigned correctly', () => {
@@ -33,7 +32,6 @@ describe('A tuple with w=0 is a vector', () => {
     expect(tuple.isVector).toBe(true);
   });
 });
-
 describe('Adding Tuples', () => {
   test('...with Tuple.add(a,b)', () => {
     const tupleA = new Tuple(3,-2,5,1);
@@ -50,7 +48,6 @@ describe('Adding Tuples', () => {
     expect(result).toEqual(target);
   });
 });
-
 describe('Subtracting two points', () => {
   test('...with Tuple.subtract()', () => {
     const point1 = new Point(3,2,1);
@@ -67,7 +64,6 @@ describe('Subtracting two points', () => {
     expect(result).toEqual(target);
   });
 });
-
 describe('Subtracting a vector from a point', () => {
   test('...with Tuple.subtract', () => {
     const point  = new Point(3,2,1);
@@ -82,7 +78,6 @@ describe('Subtracting a vector from a point', () => {
     const result = point.subtract(vector);
   });
 });
-
 describe('Subtracting a Vector from a Vector', () => {
   test('...with Tuple.subtract', () => {
     const vector1 = new Vector(3,2,1);
@@ -97,7 +92,6 @@ describe('Subtracting a Vector from a Vector', () => {
     const result  = vector1.subtract(vector2);
   });
 });
-
 describe('Negating Tuples', () => {
   test('Subtracting a vector from the zero vector', () => {
     const zero = new Vector(0,0,0);
@@ -120,12 +114,12 @@ describe('Negating Tuples', () => {
   });
 });
 
+
 test('Point() creates a Tuple with w=1', () => {
   let point = new Point(4,-4,3);
   let tuple = new Tuple(4,-4,3,1);
   expect(point).toEqual(tuple)
 });
-
 test('Vector() creates a Tuple with w=0', () => {
   let vector = new Vector(4,-4,3);
   let tuple  = new Tuple(4,-4,3,0);
