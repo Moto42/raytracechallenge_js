@@ -53,6 +53,17 @@ Tuple.prototype.multiply = function (number) {
   return Tuple.multiply(this,number)
 }
 
+Tuple.divide = function (tuple, number) {
+  const x = tuple.x / number;
+  const y = tuple.y / number;
+  const z = tuple.z / number;
+  const w = tuple.w / number;
+  return new Tuple(x,y,z,w);
+}
+Tuple.prototype.divide = function (number) {
+  return Tuple.divide(this,number)
+}
+
 export function Point(x,y,z) {
   return new Tuple(x,y,z,1);
 }
