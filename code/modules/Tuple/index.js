@@ -32,10 +32,10 @@ Tuple.prototype.subtract = function (b) {
 }
 
 export function Point(x,y,z) {
-  Tuple.call(this,x,y,z,1);
+  return new Tuple(x,y,z,1);
 }
 export function Vector(x,y,z) {
-  Tuple.call(this,x,y,z,0);
+  return new Tuple(x,y,z,0);
 }
 
 export default Tuple;
