@@ -1,4 +1,4 @@
-import {Tuple} from './Tuple';
+import {Tuple, Point, Vector} from './Tuple';
 
 let tuple;
 
@@ -32,4 +32,16 @@ describe('A tuple with w=0 is a vector', () => {
   test('The tuple is a vector', () => {
     expect(tuple.vector).toBe(true);
   });
+});
+
+test('Point() creates a Tuple with w=1', () => {
+  let point = new Point(4,-4,3);
+  let tuple = new Tuple(4,-4,3,1);
+  expect(point).toEqual(tuple)
+});
+
+test('Vector() creates a Tuple with w=0', () => {
+  let vector = new Vector(4,-4,3);
+  let tuple  = new Tuple(4,-4,3,0);
+  expect(vector).toEqual(tuple)
 });
