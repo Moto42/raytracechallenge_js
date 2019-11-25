@@ -131,14 +131,14 @@ describe('Scalar Multiplication', () => {
   describe('Multiplying a tuple by a fraction', () => {
     test('with Tuple.multiply', () => {
       const tuple  = new Tuple(  1,-2,   3, -4);
-      const result = Tuple.multiply(tuple, 3.5);
       const target = new Tuple(0.5, -1, 1.5, -2);
+      const result = Tuple.multiply(tuple, .5);
       expect(result).toEqual(target);
     });
     test('with instance.multiply', () => {
       const tuple  = new Tuple(  1,-2,   3, -4);
-      const result = tuple.multiply(3.5);
       const target = new Tuple(0.5, -1, 1.5, -2);
+      const result = tuple.multiply(.5);
       expect(result).toEqual(target);
     });
   });
