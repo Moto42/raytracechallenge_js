@@ -38,16 +38,33 @@ describe('Adding Tuples', () => {
   test('...with Tuple.add(a,b)', () => {
     const tupleA = new Tuple(3,-2,5,1);
     const tupleB = new Tuple(-2,3,1,0);
-    const addedTuple = Tuple.add(tupleA, tupleB);
-    const targetTuple = new Tuple(1,1,6,1);
-    expect(addedTuple).toEqual(targetTuple);
+    const target = new Tuple(1,1,6,1);
+    const result = Tuple.add(tupleA, tupleB);
+    expect(result).toEqual(target);
   });
   test('...with <instance>.add(a)', () => {
     const tupleA = new Tuple(3,-2,5,1);
     const tupleB = new Tuple(-2,3,1,0);
-    const addedTuple = tupleA.add(tupleB);
-    const targetTuple = new Tuple(1,1,6,1);
-    expect(addedTuple).toEqual(targetTuple);
+    const target = new Tuple(1,1,6,1);
+    const result = tupleA.add(tupleB);
+    expect(result).toEqual(target);
+  });
+});
+
+describe('Subtracting Tuples', () => {
+  test('...with Tuple.subtract()', () => {
+    const point1 = new Point(3,2,1);
+    const point2 = new Point(5,6,7);
+    const target = new Vector(-2,-4,-6)
+    const result = Tuple.subtract(point1, point2);
+    expect(result).toEqual(target);
+  });
+  test('... with instance.subtract', () => {
+    const point1 = new Point(3,2,1);
+    const point2 = new Point(5,6,7);
+    const target = new Vector(-2,-4,-6)
+    const result = point1.subtract(point2);
+    expect(result).toEqual(target);
   });
 });
 
