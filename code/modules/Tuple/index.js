@@ -5,8 +5,8 @@ export function Tuple(x,y,z,w) {
   this.y = y;
   this.z = z;
   this.w = w;
-  this.point  = !!w;
-  this.vector = !w;
+  this.isPoint  = !!w;
+  this.isVector = !w;
 }
 
 Tuple.add = function (a,b){

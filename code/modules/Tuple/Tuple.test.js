@@ -11,10 +11,10 @@ describe('A tuple with w=1.0 is a point', () => {
     expect(tuple.w).toBe(1.0);
   });
   test('the tuple is a point', () => {
-    expect(tuple.point).toBe(true);
+    expect(tuple.isPoint).toBe(true);
   });
   test('The tuple is not a vector', () => {
-    expect(tuple.vector).toBe(false);
+    expect(tuple.isVector).toBe(false);
   });
 });
 
@@ -27,10 +27,10 @@ describe('A tuple with w=0 is a vector', () => {
     expect(tuple.w).toBe(0.0);
   });
   test('the tuple is not a point', () => {
-    expect(tuple.point).toBe(false);
+    expect(tuple.isPoint).toBe(false);
   });
   test('The tuple is a vector', () => {
-    expect(tuple.vector).toBe(true);
+    expect(tuple.isVector).toBe(true);
   });
 });
 
