@@ -1,3 +1,5 @@
+
+
 export function Tuple(x,y,z,w) {
   this.x = x;
   this.y = y;
@@ -5,6 +7,18 @@ export function Tuple(x,y,z,w) {
   this.w = w;
   this.point  = !!w;
   this.vector = !w;
+}
+
+Tuple.add = function (a,b){
+  const x = a.x + b.x;
+  const y = a.y + b.y;
+  const z = a.z + b.z;
+  const w = a.w + b.w;
+  return new Tuple(x,y,z,w);
+}
+
+Tuple.prototype.add = function (b){
+  return Tuple.add(this, b);
 }
 
 export function Point(x,y,z) {
