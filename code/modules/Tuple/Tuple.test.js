@@ -113,7 +113,36 @@ describe('Negating Tuples', () => {
     expect(result).toEqual(target);
   });
 });
-
+describe('Scalar Multiplication', () => {
+  describe('Multiplying a tuple by a scalar', () => {
+    test('with Tuple.multiply', () => {
+      const tuple  = new Tuple(  1,-2,   3, -4);
+      const result = Tuple.multiply(tuple, 3.5);
+      const target = new Tuple(3.5,-7,10.5,-14);
+      expect(result).toEqual(target);
+    });
+    test('with instance.multiply', () => {
+      const tuple  = new Tuple(  1,-2,   3, -4);
+      const result = tuple.multiply(3.5);
+      const target = new Tuple(3.5,-7,10.5,-14);
+      expect(result).toEqual(target);
+    });
+  });
+  describe('Multiplying a tuple by a fraction', () => {
+    test('with Tuple.multiply', () => {
+      const tuple  = new Tuple(  1,-2,   3, -4);
+      const result = Tuple.multiply(tuple, 3.5);
+      const target = new Tuple(0.5, -1, 1.5, -2);
+      expect(result).toEqual(target);
+    });
+    test('with instance.multiply', () => {
+      const tuple  = new Tuple(  1,-2,   3, -4);
+      const result = tuple.multiply(3.5);
+      const target = new Tuple(0.5, -1, 1.5, -2);
+      expect(result).toEqual(target);
+    });
+  });
+});
 
 test('Point() creates a Tuple with w=1', () => {
   let point = new Point(4,-4,3);
