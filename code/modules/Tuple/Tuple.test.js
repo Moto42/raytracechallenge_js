@@ -98,6 +98,28 @@ describe('Subtracting a Vector from a Vector', () => {
   });
 });
 
+describe('Negating Tuples', () => {
+  test('Subtracting a vector from the zero vector', () => {
+    const zero = new Vector(0,0,0);
+    const vector = new Vector(1,-2,3);
+    const target = new Vector(-1,2,-3);
+    const result = Tuple.subtract(zero, vector);
+    expect(result).toEqual(target);
+  });
+  test('with Tuple.negate()', () => {
+    const tuple = new Tuple(1,-2,3,-4);
+    const target = new Tuple(-1,2,-3, 4);
+    const result = Tuple.negate(tuple);
+    expect(result).toEqual(target);
+  });
+  test('with instance.negate()', () => {
+    const tuple = new Tuple(1,-2,3,-4);
+    const target = new Tuple(-1,2,-3, 4);
+    const result = tuple.negate();
+    expect(result).toEqual(target);
+  });
+});
+
 test('Point() creates a Tuple with w=1', () => {
   let point = new Point(4,-4,3);
   let tuple = new Tuple(4,-4,3,1);
