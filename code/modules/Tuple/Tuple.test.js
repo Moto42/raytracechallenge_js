@@ -267,6 +267,20 @@ describe('Dot product', () => {
     expect(vector1.dot(vector2)).toBe(20);
   });
 });
+describe('Cross product of two vectors', () => {
+  const vector1 = new Vector(1,2,3)
+  const vector2 = new Vector(2,3,4);
+  const correct1x2 = new Vector(-1,2,-1);
+  const correct2x1 = new Vector(1,-2,1);
+  test('Tuple.cross()', () => {
+    expect(Tuple.cross(vector1,vector2)).toEqualTuple(correct1x2);
+    expect(Tuple.cross(vector2,vector1)).toEqualTuple(correct2x1);
+  });
+  test('instance.cross()', () => {
+    expect(vector1.cross(vector2)).toEqualTuple(correct1x2);
+    expect(vector2.cross(vector1)).toEqualTuple(correct2x1);
+  });
+});
 
 test('Point() creates a Tuple with w=1', () => {
   let point = new Point(4,-4,3);
