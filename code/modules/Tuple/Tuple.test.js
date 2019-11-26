@@ -247,6 +247,13 @@ describe('Normalizing', () => {
     });
 
   }
+  test('the Zero Vector', () => {
+    const zero = Vector(0,0,0);
+    const normalized = zero.normalize();
+    const isCorrect = zero.equals(normalized);
+    expect(isCorrect).toEqual(true);
+    expect(normalized.magnitude()).toBe(0);
+  });
 });
 
 test('Point() creates a Tuple with w=1', () => {
