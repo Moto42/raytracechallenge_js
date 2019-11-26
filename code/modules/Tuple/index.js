@@ -64,6 +64,19 @@ Tuple.prototype.divide = function (number) {
   return Tuple.divide(this,number)
 }
 
+Tuple.magnitude = function (tuple) {
+  const x = tuple.x;
+  const y = tuple.y;
+  const z = tuple.z;
+  const w = tuple.w;
+  const sumOfSquares = x**2 + y**2 + z**2 + w**2;
+  return Math.sqrt(sumOfSquares);
+}
+Tuple.prototype.magnitude = function () {
+  return Tuple.magnitude(this)
+}
+
+
 export function Point(x,y,z) {
   return new Tuple(x,y,z,1);
 }
