@@ -255,6 +255,18 @@ describe('Normalizing', () => {
     expect(normalized.magnitude()).toBe(0);
   });
 });
+describe('Dot product', () => {
+  test('Tuple.dot()', () => {
+    const vector1 = new Vector(1,2,3);
+    const vector2 = new Vector(2,3,4);
+    expect(Tuple.dot(vector1,vector2)).toBe(20);
+  });
+  test('instance.dot()', () => {
+    const vector1 = new Vector(1,2,3);
+    const vector2 = new Vector(2,3,4);
+    expect(vector1.dot(vector2)).toBe(20);
+  });
+});
 
 test('Point() creates a Tuple with w=1', () => {
   let point = new Point(4,-4,3);
