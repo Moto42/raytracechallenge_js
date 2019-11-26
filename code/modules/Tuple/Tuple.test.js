@@ -32,6 +32,42 @@ describe('A tuple with w=0 is a vector', () => {
     expect(tuple.isVector).toBe(true);
   });
 });
+describe('comparing Tuples for equality', () => {
+  const testCases = [
+    {
+      tuple1: new Vector(1,2,3),
+      tuple2: new Vector(1,2,3),
+      correct: true,
+    },
+    {
+      tuple1: new Vector(1,2,3),
+      tuple2: new Vector(3,2,1),
+      correct: false,
+    },
+    {
+      tuple1: new Vector(
+        1/Math.sqrt(14),
+        2/Math.sqrt(14),
+        3/Math.sqrt(14),
+      ),
+      tuple2: new Vector(0.26726, 0.53452, 0.80178),
+      correct: true,
+    },
+  ]
+  for (let item of testCases){
+    const {tuple1, tuple2, correct} = item;
+    describe(
+      `Tuple(${tuple1.x},${tuple1.y},${tuple1.z},${tuple1.w}) vs Tuple(${tuple2.x},${tuple2.y},${tuple2.z},${tuple2.w})`,
+      () => {
+      test('with Tuple.equals()', () => {
+        expect(Tuple.equals(tuple1, tuple2)).toEqual(correct);
+      });
+      test('with instance.equals()', () => {
+        expect(tuple1.equals(tuple2)).toEqual(correct);
+      });
+    });
+  }
+});
 describe('Adding Tuples', () => {
   test('...with Tuple.add(a,b)', () => {
     const tupleA = new Tuple(3,-2,5,1);
