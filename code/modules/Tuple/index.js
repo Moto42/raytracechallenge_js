@@ -1,4 +1,4 @@
-
+import {equals} from '../M42Math';
 
 export function Tuple(x,y,z,w) {
   this.x = x;
@@ -7,6 +7,17 @@ export function Tuple(x,y,z,w) {
   this.w = w;
   this.isPoint  = !!w;
   this.isVector = !w;
+}
+
+Tuple.equals = function (a,b){
+  const x = equals(a.x, b.x);
+  const y = equals(a.y, b.y);
+  const z = equals(a.z, b.z);
+  const w = equals(a.w, b.w);
+  return (x && y && z && w);
+}
+Tuple.prototype.equals = function (b){
+  return Tuple.equals(this, b);
 }
 
 Tuple.add = function (a,b){
