@@ -170,7 +170,7 @@ describe('Computing Magnitude', () => {
     const correct = item[1];
     describe(`of Vector(${vector.x},${vector.y},${vector.z})`, () => {
       test('with Tuple.Magnitude', () => {
-        const magnitude = Tuple.magnitude();
+        const magnitude = Tuple.magnitude(vector);
         expect(magnitude).toFloatingPointEqual(correct);
       });
       test('with instance.magnitude', () => {
