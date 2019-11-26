@@ -89,6 +89,7 @@ Tuple.prototype.magnitude = function () {
 
 Tuple.normalize = function (tuple) {
   const magnitude = tuple.magnitude();
+  if(magnitude === 0) return new Vector(0,0,0);
   const x = tuple.x/magnitude;
   const y = tuple.y/magnitude;
   const z = tuple.z/magnitude;
