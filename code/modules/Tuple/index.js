@@ -87,6 +87,16 @@ Tuple.prototype.magnitude = function () {
   return Tuple.magnitude(this)
 }
 
+Tuple.normalize = function (tuple) {
+  const magnitude = tuple.magnitude();
+  const x = tuple.x/magnitude;
+  const y = tuple.y/magnitude;
+  const z = tuple.z/magnitude;
+  return new Vector(x,y,z)
+}
+Tuple.prototype.normalize = function () {
+  return Tuple.normalize(this)
+}
 
 export function Point(x,y,z) {
   return new Tuple(x,y,z,1);
