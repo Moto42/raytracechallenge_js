@@ -99,6 +99,18 @@ Tuple.prototype.normalize = function () {
   return Tuple.normalize(this)
 }
 
+Tuple.dot = function (a,b){
+  const x = a.x * b.x;
+  const y = a.y * b.y;
+  const z = a.z * b.z;
+  const w = a.w * b.w;
+  return (x+y+z+w);
+}
+Tuple.prototype.dot = function (b){
+  return Tuple.dot(this, b);
+}
+
+
 export function Point(x,y,z) {
   return new Tuple(x,y,z,1);
 }
