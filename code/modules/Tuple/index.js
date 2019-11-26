@@ -110,6 +110,16 @@ Tuple.prototype.dot = function (b){
   return Tuple.dot(this, b);
 }
 
+Tuple.cross = function (a,b){
+  const x = (a.y * b.z)-(a.z * b.y);
+  const y = (a.z * b.x)-(a.x * b.z);
+  const z = (a.x * b.y)-(a.y * b.x);
+  return new Vector(x,y,z);
+}
+Tuple.prototype.cross = function (b){
+  return Tuple.cross(this, b);
+}
+
 
 export function Point(x,y,z) {
   return new Tuple(x,y,z,1);
