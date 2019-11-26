@@ -32,6 +32,7 @@ describe('A tuple with w=0 is a vector', () => {
     expect(tuple.isVector).toBe(true);
   });
 });
+let passedForEquality = false;
 describe('comparing Tuples for equality', () => {
   const testCases = [
     {
@@ -67,6 +68,7 @@ describe('comparing Tuples for equality', () => {
       });
     });
   }
+  passedForEquality = true;
 });
 describe('Adding Tuples', () => {
   test('...with Tuple.add(a,b)', () => {
@@ -214,6 +216,36 @@ describe('Computing Magnitude', () => {
         expect(magnitude).toFloatingPointEqual(correct);
       });
     });
+  }
+});
+describe('Normalizing', () => {
+  if(!passedForEquality) return;
+  //an array of test cases, each case being [Vector to normalize, correct answer]
+  const testCases = [
+    [new Vector(4,0,0), new Vector(1,0,0)],
+    // correct below is Vector(1√14, 2√14 3/√14) value used is aproximate
+    [new Vector(1,2,3), new Vector(0.26726, 0.53452, 0.80178)],
+  ];
+  for(let item of testCases){
+
+    const vector = item[0];
+    const correct= item[1];
+
+    describe(`Vector(${vector.x},${vector.y},${vector.z})`, () => {
+      test('with Tuple.normalize', () => {
+        const normalized = Tuple.normalize(vector);
+        const isCorrect = correct.equals(normalized);
+        expect(isCorrect).toEqual(true);
+        expect(normalized.magnitude()).toEqual(1);
+      });
+      test('with instance.normalize', () => {
+        const normalized = vector.normalize();
+        const isCorrect = correct.equals(normalized);
+        expect(isCorrect).toEqual(true);
+        expect(normalized.magnitude()).toEqual(1);
+      });
+    });
+
   }
 });
 
